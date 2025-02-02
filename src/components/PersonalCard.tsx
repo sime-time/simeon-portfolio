@@ -12,7 +12,7 @@ export default function PersonalCard() {
     <section class="sidebar p-4 pb-0 md:px-8 md:pt-12 md:pb-3 flex flex-col gap-5 h-fit">
       <button
         onClick={() => setOpenLinks(prev => !prev)}
-        class="absolute flex gap-1 items-center md:hidden bottom-4 right-4 text-yellow-300"
+        class="absolute flex gap-1 items-center md:hidden bottom-3 right-3 text-yellow-300 cursor-pointer"
       >
         <span class="text-xs font-semibold"><Show when={openLinks()} fallback={<>show more</>}>show less</Show></span>
         <FaSolidAngleDown size={20} class={`transition-all ${openLinks() ? "rotate-180" : "rotate-0"}`} />

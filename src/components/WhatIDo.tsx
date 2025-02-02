@@ -1,12 +1,12 @@
 import { JSX } from 'solid-js';
 
-interface DevDescriptionProps {
+interface WhatIDoProps {
   title: string;
   description: string;
   icon?: JSX.Element;
 }
 
-export default function DevDescription(props: DevDescriptionProps) {
+export default function WhatIDo(props: WhatIDoProps) {
   return (
     <div class="border border-slate-100/20 bg-slate-900 rounded-xl px-4 py-6 flex items-center gap-4">
       <div class="text-yellow-300">

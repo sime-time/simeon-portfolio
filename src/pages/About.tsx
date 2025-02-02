@@ -1,5 +1,5 @@
 import PageLayout from "../layouts/PageLayout";
-import DevDescription from "../components/DevDescription";
+import WhatIDo from "../components/WhatIDo";
 import { IoDesktopOutline } from 'solid-icons/io'
 import { IoPhonePortraitOutline } from 'solid-icons/io'
 import { For } from "solid-js";
@@ -31,12 +31,12 @@ export default function About() {
         <section class="flex flex-col gap-3">
           <h2 class="text-2xl font-semibold">What I Do</h2>
           <div class="flex flex-col md:flex-row justify-between gap-4">
-            <DevDescription
+            <WhatIDo
               title="Web Development"
               icon={<IoDesktopOutline size={48} />}
               description="Solution-focused web applications and websites."
             />
-            <DevDescription
+            <WhatIDo
               title="Mobile Apps"
               icon={<IoPhonePortraitOutline size={48} />}
               description="High-quality applications for Android and iOS."
