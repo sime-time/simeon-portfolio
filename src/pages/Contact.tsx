@@ -1,33 +1,46 @@
-import { createSignal } from "solid-js";
+import { createSignal, Show } from "solid-js";
 import PageLayout from "../layouts/PageLayout";
+import { ContactSchema, ContactType } from "../util/contactValidation";
+import { phoneAutoFormat } from "../util/phoneAutoFormat";
+import * as z from "zod";
 
 export default function Contact() {
   const [name, setName] = createSignal("");
   const [email, setEmail] = createSignal("");
+  const [phone, setPhone] = createSignal("");
+  const [message, setMessage] = createSignal("");
+  const [error, setError] = createSignal("");
+
+  // convert json object to uri component for netlify form submission
+  const encode = (data: any) => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+  };
 
   const handleSubmit = async (event: Event) => {
     event.preventDefault();
-
+    setError("");
     try {
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams({
-          'form-name': 'contact',
-          name,
-          email,
-        }).toString(),
+      const contactFormData: ContactType = ContactSchema.parse({
+        name: name(),
+        email: email(),
+        phone: phone(),
+        message: message(),
       });
 
-      if (response.ok) {
-        // Handle successful submission
-        console.log('Form submitted successfully');
-      } else {
-        // Handle errors
-        console.error('Form submission failed');
+      fetch("/", {
+        method: "post",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode(contactFormData)
+      })
+        .then(() => alert("Successfully submitted form!"))
+
+    } catch (err) {
+      console.error(err);
+      if (err instanceof z.ZodError) {
+        setError(err.message);
       }
-    } catch (error) {
-      console.error('Error submitting form:', error);
     }
   };
 
@@ -38,21 +51,50 @@ export default function Contact() {
         method="post"
         data-netlify="true"
         onSubmit={handleSubmit}
-        class="grid grid-cols-2"
+        class="grid grid-cols-1 md:grid-cols-2"
       >
+        <input type="hidden" name="form-name" value="contact" />
         <div>
           <label for="name">Name</label>
-          <input id="name" type="text" name="name" class="border" />
+          <input
+            id="name"
+            type="text"
+            name="name"
+            class="border"
+            value={name()}
+            placeholder="Full name"
+            onInput={(e) => setName(e.currentTarget.value)}
+          />
         </div>
 
         <div>
           <label for="email">Email</label>
-          <input id="email" type="email" name="email" class="border" />
+          <input
+            id="email"
+            type="email"
+            name="email"
+            class="border"
+            value={email()}
+            placeholder="Email address"
+            onInput={(e) => setEmail(e.currentTarget.value)}
+          />
         </div>
 
         <div>
           <label for="phone">Phone</label>
-          <input id="phone" type="tel" name="phone" class="border" />
+          <input
+            id="phone"
+            type="tel"
+            name="phone"
+            class="border"
+            value={phone()}
+            placeholder="Phone number"
+            maxLength={14}
+            onInput={(e) => {
+              let phone = phoneAutoFormat(e.currentTarget.value);
+              setPhone(phone);
+            }}
+          />
         </div>
 
         <div>
@@ -67,11 +109,24 @@ export default function Contact() {
         </div>
 
         <div class="col-span-2">
-          <label for="details">More Details</label>
-          <textarea id="details" name="details" class="border"></textarea>
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            class="border"
+            value={message()}
+            placeholder="More details..."
+            onInput={(e) => setMessage(e.currentTarget.value)}
+          ></textarea>
         </div>
 
-        <button type="submit" class="border p-3 rounded-lg">Send</button>
+        <div class="col-span-2">
+          <Show when={error()}>
+            <p class="text-red-400 text-start w-full">{error()}</p>
+          </Show>
+          <button type="submit" class="border p-3 rounded-lg w-full">Send</button>
+        </div>
+
       </form>
     </PageLayout>
   );
