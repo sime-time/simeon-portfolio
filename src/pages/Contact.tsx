@@ -1,8 +1,8 @@
 import { createSignal, Show } from "solid-js";
 import PageLayout from "../layouts/PageLayout";
-import { ContactSchema, ContactType } from "../util/contactValidation";
+//import { ContactSchema, ContactType } from "../util/contactValidation";
 import { phoneAutoFormat } from "../util/phoneAutoFormat";
-import * as z from "zod";
+//import * as z from "zod";
 
 export default function Contact() {
   const [name, setName] = createSignal("");
@@ -10,7 +10,9 @@ export default function Contact() {
   const [phone, setPhone] = createSignal("");
   const [message, setMessage] = createSignal("");
   const [error, setError] = createSignal("");
+  setError("");
 
+  /*
   // convert json object to uri component for netlify form submission
   const encode = (data: any) => {
     return Object.keys(data)
@@ -43,14 +45,12 @@ export default function Contact() {
       }
     }
   };
-
+  */
   return (
     <PageLayout title="Contact">
       <form
         name="contact"
         method="post"
-        data-netlify="true"
-        onSubmit={handleSubmit}
         class="grid grid-cols-1 md:grid-cols-2"
       >
         <input type="hidden" name="form-name" value="contact" />
