@@ -11,7 +11,7 @@ interface PortfolioItem {
 const portfolioItems: PortfolioItem[] = [
   {
     title: "Indy Boxing and Grappling",
-    type: "Web App",
+    type: "Gym Management Web App",
     imgSrc: "/images/ibg-logo.png",
     href: "https://indyboxingandgrappling.com",
   },
@@ -37,7 +37,7 @@ export default function Portfolio() {
           {(item) => (
             <div class="flex flex-col gap-3">
               <a href={item.href} target="_blank" class="cursor-pointer border border-slate-100/20 rounded-2xl bg-white flex justify-center overflow-hidden">
-                <img src={item.imgSrc} alt={item.title} class="w-fit rounded-2xl transition-transform duration-300 hover:scale-125 touch:active:scale-125" height={100} width={100} />
+                <img src={item.imgSrc} alt={item.title} class="w-fit rounded-2xl transition-transform duration-300 hover:scale-125" height={100} width={100} />
               </a>
               <div>
                 <h3 class="text-lg">{item.title}</h3>

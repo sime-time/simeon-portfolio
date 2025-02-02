@@ -22,7 +22,7 @@ function NavItem(props: NavItemProps) {
 
 export default function Nav() {
   return (
-    <nav class="z-10 border border-slate-100/20 bg-slate-900 rounded-2xl p-1 fixed bottom-3 left-3 right-3 md:bottom-auto md:left-auto md:absolute md:top-3 md:right-3">
+    <nav class="z-30 border border-slate-100/20 bg-slate-900 rounded-2xl p-1 fixed bottom-3 left-3 right-3 md:bottom-auto md:left-auto md:absolute md:top-3 md:right-3">
       <ul class="container flex items-center justify-center p-3">
         <NavItem label="About" navPage={NavPage.About} />
         <NavItem label="Resume" navPage={NavPage.Resume} />

@@ -62,7 +62,7 @@ export default function Timeline() {
             <div class="relative w-full">
               <FaSolidCircleCheck class="absolute top-0 z-10 -ml-3.5 h-7 w-7 rounded-full text-yellow-300 size-32 bg-slate-900" />
               <div class="ml-6">
-                <h3 class="font-bold text-yellow-300 text-lg">{job.title}</h3>
+                <h3 class="font-semibold text-yellow-300 text-lg">{job.title}</h3>
                 <h4 class="opacity-60 text-md">{job.employer}</h4>
                 <span class="mt-1 block text-sm font-semibold text-yellow-300">{job.date}</span>
                 <div class="mt-2 max-w-screen-md text-sm">
