@@ -10,16 +10,6 @@ interface JobEvent {
 
 const jobs: JobEvent[] = [
   {
-    title: "Education",
-    employer: "Purdue University - Indianapolis",
-    description: (<>
-      <li>Computer Science B.S.</li>
-      <li>Mathematics Minor</li>
-      <li>GPA: 3.7</li>
-    </>),
-    date: "Aug 2019 - May 2023"
-  },
-  {
     title: "Web App Developer",
     employer: "Indy Boxing and Grappling",
     description: (<>
@@ -50,13 +40,23 @@ const jobs: JobEvent[] = [
       <li>Enhanced data workflows by automating complex transformations, improving speed and accuracy for end-users.</li>
     </>),
     date: "June 2022 - May 2023",
-  }
+  },
+  {
+    title: "Education",
+    employer: "Purdue University - Indianapolis",
+    description: (<>
+      <li>Computer Science B.S.</li>
+      <li>Mathematics Minor</li>
+      <li>GPA: 3.7</li>
+    </>),
+    date: "Aug 2019 - May 2023"
+  },
 ];
 
 export default function Timeline() {
   return (
-    <div class="flex items-center justify-start px-6 ">
-      <div class="space-y-6 border-l-2 border-dashed border-yellow-700">
+    <div class="flex items-center justify-start px-6">
+      <div class="space-y-6 border-l-2 border-dashed border-yellow-600">
         <For each={jobs}>
           {(job) => (
             <div class="relative w-full">
@@ -65,8 +65,8 @@ export default function Timeline() {
                 <h3 class="font-bold text-yellow-300 text-lg">{job.title}</h3>
                 <h4 class="opacity-60 text-md">{job.employer}</h4>
                 <span class="mt-1 block text-sm font-semibold text-yellow-300">{job.date}</span>
-                <div class="mt-2 max-w-screen-sm text-sm">
-                  <ul class="list-disc flex flex-col gap-2">
+                <div class="mt-2 max-w-screen-md text-sm">
+                  <ul class="list-disc flex flex-col gap-2 ml-4">
                     {job.description}
                   </ul>
                 </div>

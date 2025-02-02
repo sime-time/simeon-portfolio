@@ -7,6 +7,8 @@ import { useNav, NavPage } from "../context/NavContext";
 
 export default function About() {
   const { setPage } = useNav();
+
+  // make an array to hold all the file names in the /public/skills folder
   const skillFiles = import.meta.glob("/public/skills/*.{png,jpg,svg}");
   const skillPaths = Object.keys(skillFiles).map(path =>
     // Remove the /public prefix from the path
