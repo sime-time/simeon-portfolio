@@ -12,11 +12,13 @@ export default function Contact() {
   const [error, setError] = createSignal("");
 
   // convert json object to uri component for netlify form submission
+  /*
   const encode = (data: any) => {
     return Object.keys(data)
       .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
       .join("&");
   };
+  */
 
   const handleSubmit = async (event: Event) => {
     event.preventDefault();
@@ -27,7 +29,7 @@ export default function Contact() {
         email: email(),
         phone: phone(),
         message: message(),
-      });
+      }) as ContactType;
 
       /*
       fetch("/", {
