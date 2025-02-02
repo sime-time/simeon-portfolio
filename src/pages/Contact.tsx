@@ -12,38 +12,35 @@ export default function Contact() {
   const [error, setError] = createSignal("");
 
   // convert json object to uri component for netlify form submission
-  /*
   const encode = (data: any) => {
     return Object.keys(data)
       .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
       .join("&");
   };
-  */
 
   const handleSubmit = async (event: Event) => {
     event.preventDefault();
     setError("");
     try {
-      ContactSchema.parse({
+      const contactFormData: ContactType = ContactSchema.parse({
         name: name(),
         email: email(),
         phone: phone(),
         message: message(),
-      }) as ContactType;
+      });
 
-      /*
       fetch("/", {
         method: "post",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode(contactFormData)
       })
         .then(() => alert("Successfully submitted form!"))
-        */
+
 
     } catch (err) {
       console.error(err);
       if (err instanceof z.ZodError) {
-        setError(err.message);
+        setError(err.issues[0].message);
       }
     }
   };
