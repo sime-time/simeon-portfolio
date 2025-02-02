@@ -13,9 +13,11 @@ export default function Contact() {
 
   // convert json object to uri component for netlify form submission
   const encode = (data: any) => {
-    return Object.keys(data)
+    const encoded = Object.keys(data)
       .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
       .join("&");
+    console.log("Encoded URI: ", encoded);
+    return encoded;
   };
 
   const handleSubmit = async (event: Event) => {
@@ -32,7 +34,7 @@ export default function Contact() {
       fetch("/", {
         method: "post",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode(contactFormData)
+        body: encode({ "form-name": "contact", ...contactFormData })
       })
         .then(() => alert("Successfully submitted form!"))
 
@@ -124,7 +126,7 @@ export default function Contact() {
           <Show when={error()}>
             <p class="text-red-400 text-start w-full">{error()}</p>
           </Show>
-          <button type="submit" class="border p-3 rounded-lg w-full">Send</button>
+          <button type="submit" class="p-3 rounded-lg w-full bg-amber-400 text-slate-900 cursor-pointer">Send</button>
         </div>
 
       </form>
