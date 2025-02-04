@@ -103,10 +103,10 @@ export default function Contact() {
         </div>
 
         <div class="contact-input">
-          <label for="work-type" class="label label-text">Type of work</label>
+          <label for="work-type[]" class="label label-text">Type of work</label>
           <select
-            id="work-type"
-            name="work-type"
+            id="work-type[]"
+            name="work-type[]"
             class="select contact-bordered"
             onSelect={(e) => setWorkType(e.currentTarget.value)}
           >

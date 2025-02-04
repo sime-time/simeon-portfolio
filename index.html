@@ -14,9 +14,9 @@
     <input type="text" name="name" />
     <input type="email" name="email" />
     <input type="tel" name="phone" optional />
-    <select type="text" name="work-type">
-      <option value="web-dev">Web</option>
-      <option value="mobile-dev">Mobile</option>
+    <select name="work-type[]" multiple>
+      <option value="web-dev" selected>Web Development</option>
+      <option value="mobile-dev">Mobile App Development</option>
     </select>
     <textarea name="message" optional></textarea>
   </form>
