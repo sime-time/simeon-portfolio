@@ -105,7 +105,7 @@ export default function Contact() {
         </div>
 
         <div class="contact-input">
-          <label for="workType" class="label label-text">Type of work</label>
+          <label for="workType" class="label label-text">Type of work *</label>
           <select
             id="workType"
             name="workType[]"
