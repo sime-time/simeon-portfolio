@@ -130,12 +130,12 @@ export default function Contact() {
           ></textarea>
         </div>
 
-        <div class="col-span-2">
+        <div class="col-span-2 mt-2">
           <Show when={error()}>
             <p class="text-red-400 text-start w-full mb-4">{error()}</p>
           </Show>
           <Show when={successMsg()} fallback={
-            <button type="submit" class="p-3 rounded-lg w-full bg-amber-400 text-slate-900 cursor-pointer">Send</button>
+            <button type="submit" class="p-3 rounded-lg w-full bg-amber-400 text-slate-900 font-semibold cursor-pointer">Submit</button>
           }>
             <p class="text-green-400 text-start w-full text-lg">{successMsg()}</p>
           </Show>
