@@ -52,7 +52,7 @@ export default function About() {
             <For each={skillPaths}>{(path) => (
               <div class="flex flex-col gap-2 items-center justify-center w-fit">
                 <img src={path} height={128} width={128} alt={extractName(path)} />
-                <p>{extractName(path)}</p>
+                <p class="opacity-70">{extractName(path)}</p>
               </div>
             )}</For>
           </div>
