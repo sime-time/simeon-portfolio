@@ -17,13 +17,13 @@ const portfolioItems: PortfolioItem[] = [
   },
   {
     title: "College Carry",
-    type: "Website",
+    type: "Moving Company Website",
     imgSrc: "/images/collegecarry.png",
     href: "https://collegecarry.com",
   },
   {
     title: "Fake Estate",
-    type: "Mobile App",
+    type: "React Native Mobile App",
     imgSrc: "/images/fake-estate.png",
     href: "https://github.com/sime-time/FakeEstate",
   },
