@@ -105,16 +105,16 @@ export default function Contact() {
         </div>
 
         <div class="contact-input">
-          <label for="work-type[]" class="label label-text">Type of work</label>
+          <label for="workType" class="label label-text">Type of work</label>
           <select
-            id="work-type[]"
-            name="work-type[]"
+            id="workType"
+            name="workType[]"
             class="select contact-bordered"
             onInput={(e) => setWorkType(e.currentTarget.value)}
           >
             <option value="" disabled selected>-- Select --</option>
-            <option value="web-dev">Web Development</option>
-            <option value="mobile-dev">Mobile App Development</option>
+            <option value="web dev">Web Development</option>
+            <option value="mobile dev">Mobile App Development</option>
           </select>
         </div>
 
