@@ -15,9 +15,11 @@ export default function Contact() {
 
   // convert json object to uri component for netlify form submission
   const encode = (data: any) => {
-    return Object.keys(data)
+    const encodedURL = Object.keys(data)
       .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
       .join("&");
+    console.log(encodedURL);
+    return encodedURL;
   };
 
   const handleSubmit = async (event: Event) => {
@@ -108,9 +110,10 @@ export default function Contact() {
             id="work-type[]"
             name="work-type[]"
             class="select contact-bordered"
-            onSelect={(e) => setWorkType(e.currentTarget.value)}
+            onInput={(e) => setWorkType(e.currentTarget.value)}
           >
-            <option value="web-dev" selected>Web Development</option>
+            <option value="">-- Select --</option>
+            <option value="web-dev">Web Development</option>
             <option value="mobile-dev">Mobile App Development</option>
           </select>
         </div>
