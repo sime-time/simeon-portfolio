@@ -12,7 +12,7 @@ const portfolioItems: PortfolioItem[] = [
   {
     title: "Indy Boxing and Grappling",
     type: "Gym Management Web App",
-    imgSrc: "/images/ibg-logo.png",
+    imgSrc: "/images/indyboxing.png",
     href: "https://indyboxingandgrappling.com",
   },
   {
