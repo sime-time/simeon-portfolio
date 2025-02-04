@@ -8,26 +8,29 @@ export default function Contact() {
   const [name, setName] = createSignal("");
   const [email, setEmail] = createSignal("");
   const [phone, setPhone] = createSignal("");
+  const [workType, setWorkType] = createSignal("");
   const [message, setMessage] = createSignal("");
   const [error, setError] = createSignal("");
+  const [successMsg, setSuccessMsg] = createSignal("");
 
   // convert json object to uri component for netlify form submission
   const encode = (data: any) => {
-    const encoded = Object.keys(data)
+    return Object.keys(data)
       .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
       .join("&");
-    console.log("Encoded URI: ", encoded);
-    return encoded;
   };
 
   const handleSubmit = async (event: Event) => {
     event.preventDefault();
     setError("");
+
+    // do input validation with zod before sending to netlify forms
     try {
       const contactFormData: ContactType = ContactSchema.parse({
         name: name(),
         email: email(),
         phone: phone(),
+        workType: workType(),
         message: message(),
       });
 
@@ -36,7 +39,7 @@ export default function Contact() {
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({ "form-name": "contact", ...contactFormData })
       })
-        .then(() => alert("Successfully submitted form!"))
+        .then(() => setSuccessMsg("Successfully submitted form!"))
 
 
     } catch (err) {
@@ -53,42 +56,42 @@ export default function Contact() {
         name="contact"
         method="post"
         onSubmit={handleSubmit}
-        class="grid grid-cols-1 md:grid-cols-2"
+        class="flex flex-col md:grid md:grid-cols-2 gap-5"
       >
         <input type="hidden" name="form-name" value="contact" />
-        <div>
-          <label for="name">Name</label>
+        <div class="contact-input">
+          <label for="name" class="label label-text">Name *</label>
           <input
             id="name"
             type="text"
             name="name"
-            class="border"
+            class="input contact-bordered"
             value={name()}
             placeholder="Full name"
             onInput={(e) => setName(e.currentTarget.value)}
           />
         </div>
 
-        <div>
-          <label for="email">Email</label>
+        <div class="contact-input">
+          <label for="email" class="label label-text">Email *</label>
           <input
             id="email"
             type="text"
             name="email"
-            class="border"
+            class="input contact-bordered"
             value={email()}
             placeholder="Email address"
             onInput={(e) => setEmail(e.currentTarget.value)}
           />
         </div>
 
-        <div>
-          <label for="phone">Phone</label>
+        <div class="contact-input">
+          <label for="phone" class="label label-text">Phone (optional)</label>
           <input
             id="phone"
             type="tel"
             name="phone"
-            class="border"
+            class="input contact-bordered"
             value={phone()}
             placeholder="Phone number"
             maxLength={14}
@@ -99,23 +102,25 @@ export default function Contact() {
           />
         </div>
 
-        <div>
-          <p>Type of work</p>
-          <div>
-            <input type="radio" id="mobile-dev" name="work-type" value="mobile-dev" />
-            <label for="mobile-dev">Mobile App Development</label><br />
-
-            <input type="radio" id="web-dev" name="work-type" value="web-dev" />
-            <label for="web-dev">Web Development</label><br />
-          </div>
+        <div class="contact-input">
+          <label for="work-type" class="label label-text">Type of work</label>
+          <select
+            id="work-type"
+            name="work-type"
+            class="select contact-bordered"
+            onSelect={(e) => setWorkType(e.currentTarget.value)}
+          >
+            <option value="web-dev" selected>Web Development</option>
+            <option value="mobile-dev">Mobile App Development</option>
+          </select>
         </div>
 
-        <div class="col-span-2">
-          <label for="message">Message</label>
+        <div class="col-span-2 contact-input">
+          <label for="message" class="label label-text">Message</label>
           <textarea
             id="message"
             name="message"
-            class="border"
+            class="textarea contact-bordered"
             value={message()}
             placeholder="More details..."
             onInput={(e) => setMessage(e.currentTarget.value)}
@@ -124,7 +129,10 @@ export default function Contact() {
 
         <div class="col-span-2">
           <Show when={error()}>
-            <p class="text-red-400 text-start w-full">{error()}</p>
+            <p class="text-red-400 text-start w-full mb-4">{error()}</p>
+          </Show>
+          <Show when={successMsg()}>
+            <p class="text-green-400 text-start w-full mb-4">{successMsg()}</p>
           </Show>
           <button type="submit" class="p-3 rounded-lg w-full bg-amber-400 text-slate-900 cursor-pointer">Send</button>
         </div>

@@ -14,7 +14,11 @@
     <input type="text" name="name" />
     <input type="email" name="email" />
     <input type="tel" name="phone" optional />
-    <textarea name="message"></textarea>
+    <select type="text" name="work-type">
+      <option value="web-dev">Web</option>
+      <option value="mobile-dev">Mobile</option>
+    </select>
+    <textarea name="message" optional></textarea>
   </form>
   <script type="module" src="/src/index.tsx"></script>
 </body>
