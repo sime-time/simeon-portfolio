@@ -2,23 +2,11 @@ import PageLayout from "../layouts/PageLayout";
 import WhatIDo from "../components/WhatIDo";
 import { IoDesktopOutline } from 'solid-icons/io'
 import { IoPhonePortraitOutline } from 'solid-icons/io'
-import { For } from "solid-js";
 import { useNav, NavPage } from "../context/NavContext";
+import Skills from "../components/Skills";
 
 export default function About() {
   const { setPage } = useNav();
-
-  // make an array to hold all the file names in the /public/skills folder
-  const skillFiles = import.meta.glob("/public/skills/*.{png,jpg,svg}");
-  const skillPaths = Object.keys(skillFiles).map(path =>
-    // Remove the /public prefix from the path
-    path.replace("/public", "")
-  );
-
-  const extractName = (input: string): string => {
-    const match = input.match(/_(.+?)\./);
-    return match ? match[1] : '';
-  }
 
   return (
     <PageLayout title="About Me">
@@ -46,17 +34,8 @@ export default function About() {
           </div>
         </section>
 
-        <section class="flex flex-col gap-3">
-          <h2 class="text-2xl font-semibold">Skills & Tools</h2>
-          <div class="grid grid-cols-3 md:grid-cols-6 gap-5">
-            <For each={skillPaths}>{(path) => (
-              <div class="flex flex-col gap-2 items-center justify-center w-fit">
-                <img src={path} height={128} width={128} alt={extractName(path)} />
-                <p class="opacity-70">{extractName(path)}</p>
-              </div>
-            )}</For>
-          </div>
-        </section>
+        <Skills />
+
       </div>
     </PageLayout>
   );
