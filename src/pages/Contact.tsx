@@ -112,7 +112,7 @@ export default function Contact() {
             class="select contact-bordered"
             onInput={(e) => setWorkType(e.currentTarget.value)}
           >
-            <option value="">-- Select --</option>
+            <option value="" disabled selected>-- Select --</option>
             <option value="web-dev">Web Development</option>
             <option value="mobile-dev">Mobile App Development</option>
           </select>
