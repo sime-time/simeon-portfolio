@@ -62,7 +62,7 @@ export default function Contact() {
       >
         <input type="hidden" name="form-name" value="contact" />
         <div class="contact-input">
-          <label for="name" class="label label-text">Name *</label>
+          <label for="name" class="label label-text">Name</label>
           <input
             id="name"
             type="text"
@@ -75,7 +75,7 @@ export default function Contact() {
         </div>
 
         <div class="contact-input">
-          <label for="email" class="label label-text">Email *</label>
+          <label for="email" class="label label-text">Email</label>
           <input
             id="email"
             type="text"
@@ -85,6 +85,20 @@ export default function Contact() {
             placeholder="Email address"
             onInput={(e) => setEmail(e.currentTarget.value)}
           />
+        </div>
+
+        <div class="contact-input">
+          <label for="workType" class="label label-text">Type of work</label>
+          <select
+            id="workType"
+            name="workType[]"
+            class="select contact-bordered"
+            onInput={(e) => setWorkType(e.currentTarget.value)}
+          >
+            <option value="" disabled selected>-- Select --</option>
+            <option value="web dev">Web Development</option>
+            <option value="mobile dev">Mobile App Development</option>
+          </select>
         </div>
 
         <div class="contact-input">
@@ -102,20 +116,6 @@ export default function Contact() {
               setPhone(phone);
             }}
           />
-        </div>
-
-        <div class="contact-input">
-          <label for="workType" class="label label-text">Type of work *</label>
-          <select
-            id="workType"
-            name="workType[]"
-            class="select contact-bordered"
-            onInput={(e) => setWorkType(e.currentTarget.value)}
-          >
-            <option value="" disabled selected>-- Select --</option>
-            <option value="web dev">Web Development</option>
-            <option value="mobile dev">Mobile App Development</option>
-          </select>
         </div>
 
         <div class="col-span-2 contact-input">
