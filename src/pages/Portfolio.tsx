@@ -21,12 +21,6 @@ const portfolioItems: PortfolioItem[] = [
     imgSrc: "/images/collegecarry.png",
     href: "https://collegecarry.com",
   },
-  {
-    title: "Fake Estate",
-    type: "React Native Mobile App",
-    imgSrc: "/images/fake-estate.png",
-    href: "https://github.com/sime-time/FakeEstate",
-  },
 ];
 
 export default function Portfolio() {

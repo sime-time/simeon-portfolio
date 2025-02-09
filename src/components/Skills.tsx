@@ -8,9 +8,9 @@ interface Skill {
 
 const skills: Skill[] = [
   {
-    name: "expo",
-    href: "https://expo.dev/",
-    imgSrc: "/images/skills/0_expo.png"
+    name: "next-js",
+    href: "https://nextjs.org/",
+    imgSrc: "/images/skills/0_next-js.png"
   },
   {
     name: "react",

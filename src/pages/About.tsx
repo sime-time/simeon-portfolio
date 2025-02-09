@@ -1,7 +1,7 @@
 import PageLayout from "../layouts/PageLayout";
 import WhatIDo from "../components/WhatIDo";
 import { IoDesktopOutline } from 'solid-icons/io'
-import { IoPhonePortraitOutline } from 'solid-icons/io'
+import { HiOutlineServerStack } from 'solid-icons/hi'
 import { useNav, NavPage } from "../context/NavContext";
 import Skills from "../components/Skills";
 
@@ -22,14 +22,14 @@ export default function About() {
           <h2 class="text-2xl font-semibold">What I Do</h2>
           <div class="flex flex-col md:flex-row justify-between gap-4">
             <WhatIDo
-              title="Web Development"
+              title="Frontend Development"
               icon={<IoDesktopOutline size={48} />}
-              description="Solution-focused web applications and websites."
+              description="User-focused web applications and websites."
             />
             <WhatIDo
-              title="Mobile Apps"
-              icon={<IoPhonePortraitOutline size={48} />}
-              description="High-quality applications for Android and iOS."
+              title="Backend Development"
+              icon={<HiOutlineServerStack size={48} />}
+              description="Organized backend services designed for scalability."
             />
           </div>
         </section>
