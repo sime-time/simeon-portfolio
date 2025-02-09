@@ -96,8 +96,9 @@ export default function Contact() {
             onInput={(e) => setWorkType(e.currentTarget.value)}
           >
             <option value="" disabled selected>-- Select --</option>
-            <option value="web dev">Web Development</option>
-            <option value="mobile dev">Mobile App Development</option>
+            <option value="frontend">Frontend Development</option>
+            <option value="backend">Backend Development</option>
+            <option value="fullstack">Full Stack Development</option>
           </select>
         </div>
 
