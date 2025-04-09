@@ -8,9 +8,9 @@ interface Skill {
 
 const skills: Skill[] = [
   {
-    name: "next-js",
-    href: "https://nextjs.org/",
-    imgSrc: "/images/skills/0_next-js.png"
+    name: "svelte",
+    href: "https://svelte.dev/",
+    imgSrc: "/images/skills/0_svelte.png"
   },
   {
     name: "react",
@@ -32,18 +32,13 @@ const skills: Skill[] = [
     href: "https://www.postgresql.org/",
     imgSrc: "/images/skills/4_postgres.png"
   },
-  {
-    name: "solid-js",
-    href: "https://www.solidjs.com/",
-    imgSrc: "/images/skills/5_solid-js.png"
-  },
 ]
 
 export default function Skills() {
   return (
     <section class="flex flex-col gap-3">
       <h2 class="text-2xl font-semibold">Skills & Tools</h2>
-      <div class="grid grid-cols-3 md:grid-cols-6 gap-5">
+      <div class="grid grid-cols-3 md:grid-cols-5 gap-3">
         <For each={skills}>
           {(skill) => (
             <div class="flex flex-col gap-2 items-center justify-center w-fit cursor-pointer">
