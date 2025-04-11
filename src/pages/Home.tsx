@@ -4,7 +4,6 @@ import Skills from "../components/Skills";
 import { useNav, NavPage } from "../context/NavContext";
 import { IoDesktopOutline } from 'solid-icons/io'
 import { BsRobot } from 'solid-icons/bs'
-import { FaSolidCode } from 'solid-icons/fa'
 import { IoCalendar } from 'solid-icons/io'
 import { BiSolidDoorOpen } from 'solid-icons/bi'
 
@@ -17,7 +16,6 @@ export default function Home() {
         <ul class="ml-4 list-disc flex flex-col gap-3">
           <li>I am a full stack developer familiar with Typescript/Javascript and SQL databases.</li>
           <li>I currently serve local businesses by building websites and full stack applications.</li>
-          <li>I am open to full time opportunities in web development, on-site or remote.</li>
           <li><button onClick={() => setPage(NavPage.Contact)} class="underline text-yellow-300 cursor-pointer">Contact me</button> if interested in freelance, contract, or full-time development work for your company.</li>
         </ul>
 
