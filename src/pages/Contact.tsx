@@ -1,14 +1,14 @@
 import { createSignal, Show } from "solid-js";
 import PageLayout from "../layouts/PageLayout";
 import { ContactSchema, ContactType } from "../util/contactValidation";
-import { phoneAutoFormat } from "../util/phoneAutoFormat";
+//import { phoneAutoFormat } from "../util/phoneAutoFormat";
 import * as z from "zod";
 
 export default function Contact() {
   const [name, setName] = createSignal("");
   const [email, setEmail] = createSignal("");
-  const [phone, setPhone] = createSignal("");
-  const [workType, setWorkType] = createSignal("");
+  //const [phone, setPhone] = createSignal("");
+  //const [workType, setWorkType] = createSignal("");
   const [message, setMessage] = createSignal("");
   const [error, setError] = createSignal("");
   const [successMsg, setSuccessMsg] = createSignal("");
@@ -31,8 +31,8 @@ export default function Contact() {
       const contactFormData: ContactType = ContactSchema.parse({
         name: name(),
         email: email(),
-        phone: phone(),
-        workType: workType(),
+        //phone: phone(),
+        //workType: workType(),
         message: message(),
       });
 
