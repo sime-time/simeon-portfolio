@@ -8,7 +8,7 @@ interface WhatIDoProps {
 
 export default function WhatIDo(props: WhatIDoProps) {
   return (
-    <div class="border border-slate-100/20 bg-slate-900 rounded-xl px-4 py-6 flex items-center gap-4 cursor-default">
+    <div class="border border-slate-100/20 bg-slate-900 rounded-xl px-4 py-6 flex items-center gap-4 cursor-default  transition-transform duration-300 hover:scale-105">
       <div class="text-yellow-300">
         {props.icon}
       </div>

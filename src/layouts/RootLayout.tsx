@@ -6,6 +6,7 @@ export default function RootLayout(props: ParentProps) {
     <main class=" flex flex-col lg:flex-row gap-5 lg:gap-8 max-w-7xl py-8 mb-14 px-4 lg:px-0 m-auto">
       <PersonalCard />
       {props.children}
+      <script src="https://asset-tidycal.b-cdn.net/js/embed.js" async></script>
     </main>
   );
 }

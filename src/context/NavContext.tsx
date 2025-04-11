@@ -2,7 +2,7 @@ import { createSignal, createContext, useContext, ParentProps } from "solid-js";
 import type { Accessor, Setter } from "solid-js";
 
 export enum NavPage {
-  About,
+  Home,
   Contact,
   Portfolio,
   Resume,
@@ -16,7 +16,7 @@ type NavContextType = {
 const NavContext = createContext<NavContextType>();
 
 export function NavProvider(props: ParentProps) {
-  const [page, setPage] = createSignal<NavPage>(NavPage.About);
+  const [page, setPage] = createSignal<NavPage>(NavPage.Home);
 
   return (
     <NavContext.Provider value={{ page, setPage }}>

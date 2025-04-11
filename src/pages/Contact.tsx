@@ -87,6 +87,7 @@ export default function Contact() {
           />
         </div>
 
+        {/*
         <div class="contact-input">
           <label for="workType" class="label label-text">Type of work</label>
           <select
@@ -118,6 +119,7 @@ export default function Contact() {
             }}
           />
         </div>
+        */}
 
         <div class="col-span-2 contact-input">
           <label for="message" class="label label-text">Message</label>
@@ -126,7 +128,7 @@ export default function Contact() {
             name="message"
             class="textarea contact-bordered"
             value={message()}
-            placeholder="More details..."
+            placeholder="Your idea, problem, or question..."
             onInput={(e) => setMessage(e.currentTarget.value)}
           ></textarea>
         </div>

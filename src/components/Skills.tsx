@@ -8,36 +8,36 @@ interface Skill {
 
 const skills: Skill[] = [
   {
-    name: "svelte",
-    href: "https://svelte.dev/",
-    imgSrc: "/images/skills/0_svelte.png"
-  },
-  {
-    name: "react",
-    href: "https://react.dev/",
-    imgSrc: "/images/skills/1_react.png"
+    name: "node.js",
+    href: "https://nodejs.org/en",
+    imgSrc: "/images/skills/nodejs.png"
   },
   {
     name: "typescript",
     href: "https://www.typescriptlang.org/",
-    imgSrc: "/images/skills/2_typescript.png"
+    imgSrc: "/images/skills/typescript.png"
   },
   {
-    name: "tailwind",
-    href: "https://tailwindcss.com/",
-    imgSrc: "/images/skills/3_tailwind.png"
-  },
-  {
-    name: "postgreSQL",
+    name: "sql",
     href: "https://www.postgresql.org/",
-    imgSrc: "/images/skills/4_postgres.png"
+    imgSrc: "/images/skills/postgres.png"
+  },
+  {
+    name: "css",
+    href: "https://developer.mozilla.org/en-US/docs/Web/CSS",
+    imgSrc: "/images/skills/css.png"
+  },
+  {
+    name: "html",
+    href: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+    imgSrc: "/images/skills/html.png"
   },
 ]
 
 export default function Skills() {
   return (
     <section class="flex flex-col gap-3">
-      <h2 class="text-2xl font-semibold">Skills & Tools</h2>
+      <h2 class="text-2xl font-semibold">Languages</h2>
       <div class="grid grid-cols-3 md:grid-cols-5 gap-3">
         <For each={skills}>
           {(skill) => (
