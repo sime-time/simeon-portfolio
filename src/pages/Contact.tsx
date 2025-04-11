@@ -53,7 +53,7 @@ export default function Contact() {
   };
 
   return (
-    <PageLayout title="Contact">
+    <PageLayout title="Let's Talk">
       <form
         name="contact"
         method="post"
