@@ -14,7 +14,7 @@ export default function Home() {
     <PageLayout title="About Me">
       <div class="flex flex-col gap-8">
         <ul class="ml-4 list-disc flex flex-col gap-3">
-          <li>I am a full stack developer familiar with Typescript/Javascript and SQL databases.</li>
+          <li>I am a full stack developer familiar with Javascript and SQL databases.</li>
           <li>I currently serve local businesses by building websites and full stack applications.</li>
           <li><button onClick={() => setPage(NavPage.Contact)} class="underline text-yellow-300 cursor-pointer">Contact me</button> if interested in freelance, contract, or full-time development work for your company.</li>
         </ul>
