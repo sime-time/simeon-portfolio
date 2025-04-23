@@ -133,7 +133,7 @@ export default function Contact() {
           ></textarea>
         </div>
 
-        <div class="col-span-2 mt-2">
+        <div class="col-span-2">
           <Show when={error()}>
             <p class="text-red-400 text-start w-full mb-4">{error()}</p>
           </Show>
